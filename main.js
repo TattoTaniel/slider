@@ -11,13 +11,14 @@ const articles = [
     },
 
     {
-        title: 'This is love',
+        title: 'This is nature',
         image: 'https://images.unsplash.com/photo-1603955389958-8ab4c2025b71?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
     }
 ]
 
 const img = document.querySelector('img');
 const h1 = document.querySelector('h1');
+const dots = [...document.querySelectorAll('.dots span')];
 
 let active = 0;
 
@@ -34,6 +35,6 @@ const changeSlide = () => {
     img.src = articles[active].image;
     h1.textContent = articles[active].title;
 
+
 }
 
-setInterval(changeSlide, 2000);

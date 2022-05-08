@@ -41,7 +41,6 @@ const changeSlide = () => {
 const changeDote = () => {
 
     const workDote = dots.findIndex(span => span.classList.contains('active'))
-    console.log(workDote);
 
     dots[workDote].classList.remove('active')
     dots[active].classList.add('active')
@@ -54,7 +53,8 @@ const keyChangeSlide = e => {
     if (e.code == 'ArrowLeft' || e.code == 'ArrowRight') {
         clearInterval(intervalIndex);
 
-        if ('ArrowLeft') active--; else active++;
+        if (e.code == 'ArrowLeft') active--
+        else active++;
 
 
         if (active === articles.length) {
@@ -63,7 +63,7 @@ const keyChangeSlide = e => {
         if (active < 0) {
             active = 2;
         }
-
+        console.log(active);
         img.src = articles[active].image;
         h1.textContent = articles[active].title;
 

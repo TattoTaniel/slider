@@ -48,3 +48,28 @@ const changeDote = () => {
 }
 
 let intervalIndex = setInterval(changeSlide, 2000);
+
+const keyChangeSlide = e => {
+
+    if (e.code == 'ArrowLeft' || e.code == 'ArrowRight') {
+        clearInterval(intervalIndex);
+
+        if ('ArrowLeft') active--; else active++;
+
+
+        if (active === articles.length) {
+            active = 0;
+        }
+        if (active < 0) {
+            active = 2;
+        }
+
+        img.src = articles[active].image;
+        h1.textContent = articles[active].title;
+
+        changeDote();
+
+    }
+}
+
+window.addEventListener('keydown', keyChangeSlide)

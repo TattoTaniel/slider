@@ -56,18 +56,20 @@ const keyChangeSlide = e => {
         if (e.code == 'ArrowLeft') active--
         else active++;
 
+        //e.code =='ArrowLeft' ? active--: active++
 
         if (active === articles.length) {
             active = 0;
         }
         if (active < 0) {
-            active = 2;
+            active = 2; // active = articles.length -1
         }
-        console.log(active);
+
         img.src = articles[active].image;
         h1.textContent = articles[active].title;
 
         changeDote();
+        intervalIndex = setInterval(changeSlide, 2000);
 
     }
 }

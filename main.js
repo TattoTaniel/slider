@@ -35,6 +35,16 @@ const changeSlide = () => {
     img.src = articles[active].image;
     h1.textContent = articles[active].title;
 
-
+    changeDote();
 }
 
+const changeDote = () => {
+
+    const workDote = dots.findIndex(span => span.classList.contains('active'))
+    console.log(workDote);
+
+    dots[workDote].classList.remove('active')
+    dots[active].classList.add('active')
+}
+
+let intervalIndex = setInterval(changeSlide, 2000);
